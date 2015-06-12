@@ -1,4 +1,4 @@
-FILES :=                              \
+﻿FILES :=                              \
     .travis.yml                       \
     collatz-tests/EID-RunCollatz.in   \
     collatz-tests/EID-RunCollatz.out  \
@@ -46,7 +46,7 @@ Collatz.log:
 
 RunCollatz.out: RunCollatz.py
 	cat RunCollatz.in
-	./RunCollatz.py < RunCollatz.in > RunCollatz.out
+	/usr/bin/env python3 RunCollatz.py < RunCollatz.in > RunCollatz.out
 	cat RunCollatz.out
 
 TestCollatz.out: TestCollatz.py
