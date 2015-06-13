@@ -87,7 +87,6 @@ def collatz_print (w, i, j, v) :
     except (TypeError, ValueError, AssertionError, OverflowError, MemoryError) :
         w.write("")
 
-
 # -------------
 # collatz_solve
 # -------------
