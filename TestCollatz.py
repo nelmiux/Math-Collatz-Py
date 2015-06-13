@@ -26,11 +26,47 @@ class TestCollatz (TestCase) :
     # read
     # ----
 
-    def test_read (self) :
+    def test_read_1 (self) :
         s    = "1 10\n"
         i, j = collatz_read(s)
         self.assertEqual(i,  1)
         self.assertEqual(j, 10)
+
+    def test_read_2 (self) :
+        s    = "100 200\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i,  100)
+        self.assertEqual(j, 200)
+
+    def test_read_3 (self) :
+        s    = "201 210\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i, 201)
+        self.assertEqual(j, 210)
+
+    def test_read_4 (self) :
+        s    = "900 1000\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i,  900)
+        self.assertEqual(j, 1000)
+
+    def test_read_5 (self) :
+        s    = "1 1\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i, 1)
+        self.assertEqual(j, 1)
+
+    def test_read_6 (self) :
+        s    = "7 27\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i,  7)
+        self.assertEqual(j, 27)
+
+    def test_read_7 (self) :
+        s    = "54 97\n"
+        i, j = collatz_read(s)
+        self.assertEqual(i, 54)
+        self.assertEqual(j, 97)
 
     # ----
     # eval
@@ -52,14 +88,91 @@ class TestCollatz (TestCase) :
         v = collatz_eval(900, 1000)
         self.assertEqual(v, 174)
 
+    def test_eval_5 (self) :
+        v = collatz_eval(1, 1)
+        self.assertEqual(v, 1)
+
+    def test_eval_6 (self) :
+        v = collatz_eval(7, 27)
+        self.assertEqual(v, 111)
+
+    def test_eval_7 (self) :
+        v = collatz_eval(54, 97)
+        self.assertEqual(v, 119)
+
+    def test_eval_8 (self) :
+        try :
+                v = collatz_eval(-27, 7)
+                self.fail()
+                self.assertFalse(False)
+        except ValueError as e :
+                self.assertEqual(type(e), ValueError)
+        else :
+                self.fail()
+                self.assertFalse(False)
+
+    def test_eval_9 (self) :
+        try :
+                v = collatz_eval(0, 1)
+                self.fail()
+                self.assertFalse(False)
+        except ValueError as e :
+                self.assertEqual(type(e), ValueError)
+        else :
+                self.fail()
+                self.assertFalse(False)
+
+    def test_eval_10 (self) :
+        try :
+                v = collatz_eval("abcd", "ABCD")
+                self.fail()
+                self.assertFalse(False)
+        except TypeError as e :
+                self.assertEqual(type(e), TypeError)
+        else :
+                self.fail()
+                self.assertFalse(False)
+ 
     # -----
     # print
     # -----
 
-    def test_print (self) :
+    def test_print_1 (self) :
         w = StringIO()
         collatz_print(w, 1, 10, 20)
         self.assertEqual(w.getvalue(), "1 10 20\n")
+
+    def test_print_2 (self) :
+        w = StringIO()
+        collatz_print(w, 100, 200, 125)
+        self.assertEqual(w.getvalue(), "100 200 125\n")
+
+    def test_print_3 (self) :
+        w = StringIO()
+        collatz_print(w, 201, 210, 89)
+        self.assertEqual(w.getvalue(), "201 210 89\n")
+
+    def test_print_4 (self) :
+        w = StringIO()
+        collatz_print(w, 900, 1000, 174)
+        self.assertEqual(w.getvalue(), "900 1000 174\n")
+
+    def test_print_5 (self) :
+        w = StringIO()
+        collatz_print(w, 1, 1, 1)
+        self.assertEqual(w.getvalue(), "1 1 1\n")
+
+    def test_print_6 (self) :
+        w = StringIO()
+        try :
+                collatz_print(w, "abcd", "ABCD", 0)
+                self.fail()
+                self.assertFalse(False)
+        except TypeError as e :
+                self.assertEqual(type(e), TypeError)
+        else :
+                self.fail()
+                self.assertFalse(False)
 
     # -----
     # solve
