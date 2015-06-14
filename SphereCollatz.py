@@ -6,6 +6,12 @@
 # Glenn P. Downing
 # ---------------------------
 
+# -------
+# imports
+# -------
+
+import sys
+
 # ------------
 # collatz_read
 # ------------
@@ -18,6 +24,7 @@ def collatz_read (s) :
     """
     a = s.split()
     try :
+        assert ((type(s)) is str)
         assert ((len (a)) == 2)
         assert ((type(a[0]) is str) and (type(a[1]) is str))
         assert ((type(int(a[0])) is int) and (type(int(a[1])) is int))
@@ -106,3 +113,11 @@ def collatz_solve (r, w) :
         i, j = collatz_read(s)
         v = collatz_eval(i, j)
         collatz_print(w, i, j, v)
+
+# ----
+# main
+# ----
+
+if __name__ == "__main__" :
+    collatz_solve(sys.stdin, sys.stdout)
+
