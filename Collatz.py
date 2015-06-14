@@ -26,30 +26,19 @@ def collatz_read (s) :
     return [int(a[0]), int(a[1])]
 
 # ------------
-# length
+# collatz_length
 # ------------
 
-def length (n) :
+def collatz_length (n) :
     l = 1
     while n > 1 :
         if (n % 2 == 0) :
             n = n / 2
         else :
-            n = 3 * n + 1
+            n = (3 * n + 1) / 2
+            l += 1
         l += 1
     return l;
-
-# ------------
-# maximum
-# ------------
-
-def maximum (i, j) :
-    m = 1
-    for n in range (i, j + 1) :
-        l = length (n)
-        if m < l :
-            m = l
-    return m
 
 # ------------
 # collatz_eval
@@ -63,15 +52,13 @@ def collatz_eval (i, j) :
     """
     # <your code>
     try :
-        assert (((type(i) is int) and (type(j) is int)) == True)
-        assert (((i > 0) and (j > 0) and (i < 1000001) and (j < 1000001)) == True)
-        if (i < j) :
-            m = maximum (i, j)
-        else :
-            m = maximum (j, i)
+        assert ((type(i) is int) and (type(j) is int))
+        assert ((i > 0) and (j > 0) and (i < 1000001) and (j < 1000001))
+        if (i == j) :
+            return collatz_length(i)
     except (TypeError, ValueError, AssertionError, OverflowError, MemoryError) :
-        m = 0
-    return m
+       return 0
+    return max(collatz_length(n) for n in range(min(i, j), max(i, j) + 1))
 
 # -------------
 # collatz_print
@@ -86,7 +73,7 @@ def collatz_print (w, i, j, v) :
     v the max cycle length
     """
     try :
-        assert (((type(i) is int) and (type(j) is int) and (type(v) is int)) == True)
+        assert ((type(i) is int) and (type(j) is int) and (type(v) is int))
         assert (v != 0)
         assert (w is not None)
         w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
