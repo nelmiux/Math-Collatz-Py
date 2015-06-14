@@ -35,16 +35,23 @@ def collatz_read (s) :
 # collatz_length
 # ------------
 
+cache = {1: 1}
+
 def collatz_length (n) :
     l = 1
-    while n > 1 :
-        if (n % 2 == 0) :
-            n = n / 2
-        else :
-            n = (3 * n + 1) / 2
+    t = n
+    if n in cache :
+        l = cache[t]
+    else :
+        while n != 1 :
+            if (n % 2 == 0) :
+                n = n // 2
+            else :
+                n = (3 * n + 1) // 2
+                l += 1
             l += 1
-        l += 1
-    return l;
+    cache[t] = l
+    return l
 
 # ------------
 # collatz_eval
