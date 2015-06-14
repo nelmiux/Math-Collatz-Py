@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 # ---------------------------
 # projects/collatz/Collatz.py
 # Copyright (C) 2015
