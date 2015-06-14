@@ -32,6 +32,10 @@ def collatz_read (s) :
 cache = {1: 1}
 
 def collatz_length (n) :
+    """
+    calculate the cycle length of n
+    return the cycle length of an integer n
+    """
     l = 1
     t = n
     if n in cache :
