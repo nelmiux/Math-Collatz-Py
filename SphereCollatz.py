@@ -6,6 +6,12 @@
 # Glenn P. Downing
 # ---------------------------
 
+# -------
+# imports
+# -------
+
+import sys
+
 # ------------
 # collatz_read
 # ------------
@@ -18,12 +24,17 @@ def collatz_read (s) :
     """
     a = s.split()
     try :
+        assert ((type(s)) is str)
         assert ((len (a)) == 2)
         assert ((type(a[0]) is str) and (type(a[1]) is str))
         assert ((type(int(a[0])) is int) and (type(int(a[1])) is int))
     except (TypeError, ValueError, AssertionError, OverflowError, MemoryError) :
         return [0, 0]
     return [int(a[0]), int(a[1])]
+
+# ------------
+# length
+# ------------
 
 def length (n) :
     l = 1
@@ -34,6 +45,10 @@ def length (n) :
             n = 3 * n + 1
         l += 1
     return l;
+
+# ------------
+# maximum
+# ------------
 
 def maximum (i, j) :
     m = 1
@@ -98,3 +113,11 @@ def collatz_solve (r, w) :
         i, j = collatz_read(s)
         v = collatz_eval(i, j)
         collatz_print(w, i, j, v)
+
+# ----
+# main
+# ----
+
+if __name__ == "__main__" :
+    collatz_solve(sys.stdin, sys.stdout)
+
