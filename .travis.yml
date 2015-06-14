@@ -35,8 +35,7 @@ script:
     - make test
     - ls -al
     - make check
-		
-		# whitelist
+
 branches:
   only:
     - master
