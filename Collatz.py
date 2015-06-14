@@ -25,6 +25,10 @@ def collatz_read (s) :
         return [0, 0]
     return [int(a[0]), int(a[1])]
 
+# ------------
+# length
+# ------------
+
 def length (n) :
     l = 1
     while n > 1 :
@@ -34,6 +38,10 @@ def length (n) :
             n = 3 * n + 1
         l += 1
     return l;
+
+# ------------
+# maximum
+# ------------
 
 def maximum (i, j) :
     m = 1
