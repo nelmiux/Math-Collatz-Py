@@ -8,6 +8,7 @@ python:
     - "3.4"
 
 before_install:
+    - sudo: required
     - sudo apt-get update
 
 install:
