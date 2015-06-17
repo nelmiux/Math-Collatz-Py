@@ -7,8 +7,9 @@ language: python
 python:
     - "3.4"
 
+sudo: required
+
 before_install:
-    - sudo: required
     - sudo apt-get update
 
 install:
