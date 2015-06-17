@@ -28,7 +28,7 @@ def collatz_read (s) :
         assert ((len (a)) == 2)
         assert ((type(a[0]) is str) and (type(a[1]) is str))
         assert ((type(int(a[0])) is int) and (type(int(a[1])) is int))
-    except (TypeError, ValueError, AssertionError, OverflowError, MemoryError) :
+    except (AssertionError, OverflowError, MemoryError) :
         return [0, 0]
     return [int(a[0]), int(a[1])]
 
@@ -39,6 +39,10 @@ def collatz_read (s) :
 cache = {1: 1}
 
 def collatz_length (n) :
+    """
+    calculate the cycle length of n
+    return the cycle length of an integer n
+    """
     l = 1
     t = n
     if n in cache :
@@ -70,7 +74,7 @@ def collatz_eval (i, j) :
         assert ((i > 0) and (j > 0) and (i < 1000001) and (j < 1000001))
         if (i == j) :
             return collatz_length(i)
-    except (TypeError, ValueError, AssertionError, OverflowError, MemoryError) :
+    except (AssertionError, OverflowError, MemoryError) :
        return 0
     return max(collatz_length(n) for n in range(min(i, j), max(i, j) + 1))
 
@@ -88,10 +92,10 @@ def collatz_print (w, i, j, v) :
     """
     try :
         assert ((type(i) is int) and (type(j) is int) and (type(v) is int))
-        assert (v != 0)
+        assert ((i > 0) and (j > 0) and (v > 0))
         assert (w is not None)
         w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
-    except (TypeError, ValueError, AssertionError, OverflowError, MemoryError) :
+    except (AssertionError, OverflowError, MemoryError) :
         w.write("")
 
 # -------------
