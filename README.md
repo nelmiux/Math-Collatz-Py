@@ -3,13 +3,6 @@
 ## Status
 ![Build Status](https://travis-ci.org/nelmiux/cs373-collatz.svg?branch=master)
 
-## ---------------------------
-## projects/collatz/Collatz.py
-## Copyright (C) 2015
-## Glenn P. Downing
-## ---------------------------
-
- 
 ### Functions
       	  	
 collatz_eval(i, j)
