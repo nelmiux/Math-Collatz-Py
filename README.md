@@ -1,7 +1,7 @@
 # CS373-collatz
 
 ## Status
-![Build Status](https://magnum.travis-ci.com/nelmiux/cs371p-collatz.svg?token=d7DyZsL5MGsgRrcqFYN1&branch=master)
+![Build Status](https://magnum.travis-ci.com/nelmiux/cs373-collatz.svg?token=d7DyZsL5MGsgRrcqFYN1&branch=master)
 
 ### Functions
       	  	
