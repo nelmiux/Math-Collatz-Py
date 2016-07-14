@@ -1,7 +1,7 @@
 # Collatz (Python)
 
 ## Status
-![Build Status](https://magnum.travis-ci.com/nelmiux/cs373-collatz.svg?token=d7DyZsL5MGsgRrcqFYN1&branch=master)
+![Build Status](https://travis-ci.org/nelmiux/Math-Collatz-Py.svg?branch=master)
 
 ### Functions
       	  	
