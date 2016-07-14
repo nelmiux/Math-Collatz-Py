@@ -35,9 +35,6 @@ config:
 
 test: RunCollatz.out TestCollatz.out
 
-collatz-tests:
-	git clone https://github.com/cs373-summer-2015/collatz-tests.git
-
 Collatz.html: Collatz.py
 	pydoc3 -w Collatz
 
