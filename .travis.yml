@@ -30,7 +30,6 @@ script:
     - date
     - ls -al
     - touch Collatz.log
-    - make collatz-tests
     - ls -al
     - make Collatz.html
     - ls -al
