@@ -1,4 +1,4 @@
-# CS373-collatz
+# Collatz (Python)
 
 ## Status
 ![Build Status](https://magnum.travis-ci.com/nelmiux/cs373-collatz.svg?token=d7DyZsL5MGsgRrcqFYN1&branch=master)
